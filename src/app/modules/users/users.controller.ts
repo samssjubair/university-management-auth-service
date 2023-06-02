@@ -1,7 +1,8 @@
-import { Request, Response } from 'express'
+import { NextFunction, Request, Response } from 'express'
 import { createUser } from './users.service'
+import APIError from '../../../errors/ApiError'
 
-export const createUserController = async (req: Request, res: Response) => {
+export const createUserController = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { user } = req.body
     const result = await createUser(user)
@@ -10,9 +11,11 @@ export const createUserController = async (req: Request, res: Response) => {
       data: result,
     })
   } catch (error) {
-    res.status(400).json({
-      success: false,
-      message: 'Failed to create user',
-    })
+    next(error) ;
+    // throw new APIError(404,'Failed to create user');
+    // res.status(400).json({
+    //   success: false,
+    //   message: 'Failed to create user',
+    // })
   }
 }

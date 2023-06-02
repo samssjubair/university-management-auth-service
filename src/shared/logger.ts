@@ -1,36 +1,66 @@
-import winston from 'winston';
-import path from 'path';
+import { createLogger, format, transports } from 'winston';
+const { combine, timestamp, label, prettyPrint, printf } = format;
+import  DailyRotateFile from 'winston-daily-rotate-file';
 
-// const logger = winston.createLogger({
-//   level: 'info',
-//   format: winston.format.json(),
-//   defaultMeta: { service: 'user-service' },
-//   transports: [
-//     new winston.transports.Console(), //to see log in terminal also
-//     new winston.transports.File({ filename: 'error.log', level: 'error' }),
-//     new winston.transports.File({ filename: 'combined.log' }),
-//   ],
-// });
+import path from 'path'
 
-const logger = winston.createLogger({
-    level: 'info',
-    format: winston.format.json(),
-    transports:[
-        new winston.transports.Console(),
-        new winston.transports.File({ filename: path.join(process.cwd(),'logs','winston','success.log'), level: 'info' })
-    ]
+const myFormat = printf(({ level, message, label, timestamp }) => {
+    const date= new Date(timestamp);
+    const hour= date.getHours();
+    const minutes= date.getMinutes();
+    const seconds= date.getSeconds();
+
+
+  return `${date.toDateString()} ${hour}:${minutes}:${seconds} [${label}] ${level}: ${message}`;
 });
 
-const errorLogger = winston.createLogger({
-    level: 'error',
-    format: winston.format.json(),  
-    transports:[
-        new winston.transports.Console(),
-        new winston.transports.File({ filename: path.join(process.cwd(),'logs','winston','error.log'), level: 'error' })
-    ]
-});
 
-export {
-    logger,
-    errorLogger
-};
+const logger = createLogger({
+  level: 'info',
+  format: combine(
+    label({ label: 'University Management' }),
+    timestamp(),
+    myFormat,
+    prettyPrint()
+  ),
+  transports: [
+    new transports.Console(),
+    // new transports.File({
+    //   filename: path.join(process.cwd(), 'logs', 'winston','successes' ,'um-%DATE%-success.log'),
+    //   level: 'info',
+    // }),
+    new DailyRotateFile({
+    filename: path.join(process.cwd(), 'logs', 'winston','successes' ,'um-%DATE%-success.log'),
+    datePattern: 'YYYY-MM-DD-HH',
+    zippedArchive: true,
+    maxSize: '20m',
+    maxFiles: '14d'
+  })
+  ],
+})
+
+const errorLogger = createLogger({
+  level: 'error',
+  format: combine(
+    label({ label: 'University Management' }),
+    timestamp(),
+    myFormat,
+    prettyPrint()
+  ),
+  transports: [
+    new transports.Console(),
+    // new transports.File({
+    //   filename: path.join(process.cwd(), 'logs', 'winston', 'error.log'),
+    //   level: 'error',
+    // }),
+    new DailyRotateFile({
+    filename: path.join(process.cwd(), 'logs', 'winston','errors' ,'um-%DATE%-error.log'),
+    datePattern: 'YYYY-MM-DD-HH',
+    zippedArchive: true,
+    maxSize: '20m',
+    maxFiles: '14d'
+  })
+  ],
+})
+
+export { logger, errorLogger }

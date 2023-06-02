@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import app from './app'
 import config from './config/index'
-import {logger,errorLogger} from './shared/logger'
+import { logger, errorLogger } from './shared/logger'
 
 async function bootstrap() {
   try {

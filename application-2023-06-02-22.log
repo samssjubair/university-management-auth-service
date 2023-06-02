@@ -1,0 +1,12 @@
+{
+  message: '🛢 Connected to Database',
+  level: 'info',
+  label: 'University Management',
+  timestamp: '2023-06-02T16:10:22.390Z'
+}
+{
+  message: '🚀 Server started on port 5801',
+  level: 'info',
+  label: 'University Management',
+  timestamp: '2023-06-02T16:10:22.395Z'
+}
