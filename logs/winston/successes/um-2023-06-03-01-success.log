@@ -274,3 +274,39 @@
   label: 'University Management',
   timestamp: '2023-06-02T19:53:32.305Z'
 }
+{
+  message: '🛢 Connected to Database',
+  level: 'info',
+  label: 'University Management',
+  timestamp: '2023-06-02T19:55:29.741Z'
+}
+{
+  message: '🚀 Server started on port 5801',
+  level: 'info',
+  label: 'University Management',
+  timestamp: '2023-06-02T19:55:29.744Z'
+}
+{
+  message: '🛢 Connected to Database',
+  level: 'info',
+  label: 'University Management',
+  timestamp: '2023-06-02T19:55:44.801Z'
+}
+{
+  message: '🚀 Server started on port 5801',
+  level: 'info',
+  label: 'University Management',
+  timestamp: '2023-06-02T19:55:44.810Z'
+}
+{
+  message: '🛢 Connected to Database',
+  level: 'info',
+  label: 'University Management',
+  timestamp: '2023-06-02T19:56:01.279Z'
+}
+{
+  message: '🚀 Server started on port 5801',
+  level: 'info',
+  label: 'University Management',
+  timestamp: '2023-06-02T19:56:01.286Z'
+}
