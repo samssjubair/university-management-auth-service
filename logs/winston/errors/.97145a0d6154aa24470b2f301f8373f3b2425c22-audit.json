@@ -1,30 +1,35 @@
 {
-  "keep": {
-    "days": true,
-    "amount": 14
-  },
-  "auditLog": "/Users/samssjubair/Documents/PH level-2/university-management/server/logs/winston/errors/.97145a0d6154aa24470b2f301f8373f3b2425c22-audit.json",
-  "files": [
-    {
-      "date": 1685722442967,
-      "name": "/Users/samssjubair/Documents/PH level-2/university-management/server/logs/winston/errors/um-2023-06-02-22-error.log",
-      "hash": "eb7cffde9f27d1826dae7ebc3b172982a189393c676d8ec248c8648ee23fd21e"
+    "keep": {
+        "days": true,
+        "amount": 14
     },
-    {
-      "date": 1685729020410,
-      "name": "/Users/samssjubair/Documents/PH level-2/university-management/server/logs/winston/errors/um-2023-06-03-00-error.log",
-      "hash": "f858f2f8aad6c00a90c1594253d74f349a0641fa55ee5efb10d3aea4c1161b7c"
-    },
-    {
-      "date": 1685732490989,
-      "name": "/Users/samssjubair/Documents/PH level-2/university-management/server/logs/winston/errors/um-2023-06-03-01-error.log",
-      "hash": "bbd350c47ab538aa7d9807a4617e87cc86408be20c650097cb037560eeb668fb"
-    },
-    {
-      "date": 1685736864546,
-      "name": "/Users/samssjubair/Documents/PH level-2/university-management/server/logs/winston/errors/um-2023-06-03-02-error.log",
-      "hash": "9b4980bc18d0c3e2687c0a3a330ad8d9a8c8ae0636bf752f1730b88d9fd4dfdd"
-    }
-  ],
-  "hashType": "sha256"
+    "auditLog": "/Users/samssjubair/Documents/PH level-2/university-management/server/logs/winston/errors/.97145a0d6154aa24470b2f301f8373f3b2425c22-audit.json",
+    "files": [
+        {
+            "date": 1685722442967,
+            "name": "/Users/samssjubair/Documents/PH level-2/university-management/server/logs/winston/errors/um-2023-06-02-22-error.log",
+            "hash": "eb7cffde9f27d1826dae7ebc3b172982a189393c676d8ec248c8648ee23fd21e"
+        },
+        {
+            "date": 1685729020410,
+            "name": "/Users/samssjubair/Documents/PH level-2/university-management/server/logs/winston/errors/um-2023-06-03-00-error.log",
+            "hash": "f858f2f8aad6c00a90c1594253d74f349a0641fa55ee5efb10d3aea4c1161b7c"
+        },
+        {
+            "date": 1685732490989,
+            "name": "/Users/samssjubair/Documents/PH level-2/university-management/server/logs/winston/errors/um-2023-06-03-01-error.log",
+            "hash": "bbd350c47ab538aa7d9807a4617e87cc86408be20c650097cb037560eeb668fb"
+        },
+        {
+            "date": 1685736864546,
+            "name": "/Users/samssjubair/Documents/PH level-2/university-management/server/logs/winston/errors/um-2023-06-03-02-error.log",
+            "hash": "9b4980bc18d0c3e2687c0a3a330ad8d9a8c8ae0636bf752f1730b88d9fd4dfdd"
+        },
+        {
+            "date": 1685860341433,
+            "name": "/Users/samssjubair/Documents/PH level-2/university-management/server/logs/winston/errors/um-2023-06-04-12-error.log",
+            "hash": "0ee66d42476de6b4003849deaedf1ac2219f3776e47762e091a9f24b4da31c54"
+        }
+    ],
+    "hashType": "sha256"
 }
