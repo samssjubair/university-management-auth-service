@@ -1,7 +1,6 @@
 import { RequestHandler } from 'express'
 import { UserService } from './user.service'
 
-
 const createUserController: RequestHandler = async (req, res, next) => {
   try {
     const { user } = req.body
