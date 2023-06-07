@@ -9,7 +9,7 @@ router.post(
   UserValidation.validateRequest(
     AcademicSemesterValidation.createAcademicSemesterZodSchema
   ),
-    AcademicSemesterController.createSemester
+  AcademicSemesterController.createSemester
 );
 
 export const academicSemesterRouter = router;
