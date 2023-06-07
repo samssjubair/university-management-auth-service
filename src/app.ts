@@ -1,16 +1,16 @@
-import express, { Application } from 'express'
-import cors from 'cors'
-import { userRouter } from './app/modules/users/user.route'
-import globalErrorHandler from './app/middlewares/globalErrorHandlers'
+import express, { Application } from 'express';
+import cors from 'cors';
+import { userRouter } from './app/modules/users/user.route';
+import globalErrorHandler from './app/middlewares/globalErrorHandlers';
 
-const app: Application = express()
-app.use(cors())
+const app: Application = express();
+app.use(cors());
 
 // parser
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.use('/api/v1/users', userRouter)
+app.use('/api/v1/users', userRouter);
 
 // app.get('/', async (req: Request, res: Response, next: NextFunction) => {
 //   // next('Khaise! error')
@@ -21,6 +21,6 @@ app.use('/api/v1/users', userRouter)
 // })
 
 //global error handler
-app.use(globalErrorHandler)
+app.use(globalErrorHandler);
 
-export default app
+export default app;
