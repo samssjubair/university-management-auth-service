@@ -29,6 +29,16 @@
             "date": 1685860341433,
             "name": "/Users/samssjubair/Documents/PH level-2/university-management/server/logs/winston/errors/um-2023-06-04-12-error.log",
             "hash": "0ee66d42476de6b4003849deaedf1ac2219f3776e47762e091a9f24b4da31c54"
+        },
+        {
+            "date": 1685899121070,
+            "name": "/Users/samssjubair/Documents/PH level-2/university-management/server/logs/winston/errors/um-2023-06-04-23-error.log",
+            "hash": "d1d4b12b97bcf23404990ffc59d1fe8025a6fe2c41dd8fcf7b56a1666578637e"
+        },
+        {
+            "date": 1685901635220,
+            "name": "/Users/samssjubair/Documents/PH level-2/university-management/server/logs/winston/errors/um-2023-06-05-00-error.log",
+            "hash": "3d17e5ff41495260edcdde7dc8e536ed6b03020f470d7956007dd092d3357f1c"
         }
     ],
     "hashType": "sha256"
