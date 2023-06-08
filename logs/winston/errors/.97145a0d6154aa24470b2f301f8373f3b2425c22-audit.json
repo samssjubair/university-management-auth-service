@@ -69,6 +69,11 @@
             "date": 1686180328823,
             "name": "/Users/samssjubair/Documents/PH level-2/university-management/server/logs/winston/errors/um-2023-06-08-05-error.log",
             "hash": "92b6884f09cb3a32c42448e38590aa5ca23d4dee15d3347109620aa543990f8e"
+        },
+        {
+            "date": 1686227731503,
+            "name": "/Users/samssjubair/Documents/PH level-2/university-management/server/logs/winston/errors/um-2023-06-08-18-error.log",
+            "hash": "97c580571fef14e5a3dc6113b751a4aa868ed0d4e67a832e57df84a716022ec2"
         }
     ],
     "hashType": "sha256"
