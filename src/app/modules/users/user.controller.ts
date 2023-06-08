@@ -1,18 +1,20 @@
-import { RequestHandler } from 'express';
+import { NextFunction, Request, RequestHandler, Response } from 'express';
 import { UserService } from './user.service';
+import catchAsync from '../../../shared/catchAsync';
+import sendResponse from '../../../shared/sendResponse';
+import httpStatus from 'http-status';
 
-const createUserController: RequestHandler = async (req, res, next) => {
-  try {
+const createUserController: RequestHandler = catchAsync(async (req: Request,res: Response, next: NextFunction)=>{
     const { user } = req.body;
     const result = await UserService.createUser(user);
-    res.status(201).json({
-      success: true,
-      data: result,
-    });
-  } catch (error) {
-    next(error);
-  }
-};
+    next();
+    sendResponse(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: 'User created successfully',
+        data: result,
+    })
+});
 
 export const UserController = {
   createUserController,
