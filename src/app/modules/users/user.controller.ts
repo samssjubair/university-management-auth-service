@@ -8,7 +8,7 @@ const createUserController: RequestHandler = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const { user } = req.body;
     const result = await UserService.createUser(user);
-    
+
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,

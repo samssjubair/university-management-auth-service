@@ -13,7 +13,7 @@ const createSemester: RequestHandler = catchAsync(
     const result = await AcademicSemesterService.createSemester(
       academicSemesterData
     );
-    
+
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
@@ -25,24 +25,26 @@ const createSemester: RequestHandler = catchAsync(
 );
 
 const getAllSemesters: RequestHandler = catchAsync(
-    async (req: Request, res: Response, next: NextFunction) => {
-        const paginationOptions = pick(req.query, paginationFields);
-        // console.log(paginationOptions);
+  async (req: Request, res: Response, next: NextFunction) => {
+    const paginationOptions = pick(req.query, paginationFields);
+    // console.log(paginationOptions);
 
-        const result = await AcademicSemesterService.getAllSemesters(paginationOptions);
+    const result = await AcademicSemesterService.getAllSemesters(
+      paginationOptions
+    );
 
-        sendResponse<IAcademicSemester[]>(res,{
-            statusCode: httpStatus.OK,
-            success: true,
-            message: 'Semesters fetched successfully',
-            meta: result.meta,
-            data: result.data
-        })
-        next();
-
-        })
+    sendResponse<IAcademicSemester[]>(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Semesters fetched successfully',
+      meta: result.meta,
+      data: result.data,
+    });
+    next();
+  }
+);
 
 export const AcademicSemesterController = {
   createSemester,
-  getAllSemesters
+  getAllSemesters,
 };

@@ -5,11 +5,11 @@ type IApiResponse<T> = {
   success: boolean;
   message?: string | null;
   data?: T | null;
-    meta?: {
-        total: number,
-        page: number,
-        limit: number
-    } | null
+  meta?: {
+    total: number;
+    page: number;
+    limit: number;
+  } | null;
 };
 
 const sendResponse = <T>(res: Response, data: IApiResponse<T>): void => {
