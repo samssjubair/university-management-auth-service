@@ -1,5 +1,5 @@
 import httpStatus from 'http-status';
-import {  Request, RequestHandler, Response } from 'express';
+import { Request, RequestHandler, Response } from 'express';
 import { AcademicSemesterService } from './academicSemester.service';
 import catchAsync from '../../../shared/catchAsync';
 import sendResponse from '../../../shared/sendResponse';
