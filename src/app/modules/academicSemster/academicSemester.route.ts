@@ -24,4 +24,6 @@ router.post(
   AcademicSemesterController.createSemester
 );
 
+router.delete('/:id', AcademicSemesterController.deleteSemester);
+
 export const academicSemesterRouter = router;
