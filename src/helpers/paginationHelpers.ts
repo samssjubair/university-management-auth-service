@@ -1,4 +1,3 @@
-
 import { SortOrder } from 'mongoose';
 
 type IOptions = {
