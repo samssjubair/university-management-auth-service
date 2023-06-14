@@ -6,6 +6,8 @@ const router = express.Router();
 
 router.get('/get-user', AcademicSemesterController.getAllSemesters);
 
+router.get('/:id', AcademicSemesterController.getSingleSemester);
+
 router.post(
   '/create-semester',
   UserValidation.validateRequest(
@@ -13,5 +15,7 @@ router.post(
   ),
   AcademicSemesterController.createSemester
 );
+
+
 
 export const academicSemesterRouter = router;
