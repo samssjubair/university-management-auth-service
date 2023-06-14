@@ -8,6 +8,7 @@ import APIError from '../../errors/ApiError';
 import { errorLogger } from '../../shared/logger';
 import { ZodError } from 'zod';
 import handleZodValidationError from '../../errors/handleZodValidationError';
+import handleCastError from '../../errors/handleCastError';
 
 const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
   // to save error only in production
@@ -30,6 +31,12 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
     message = simplifiedError.message;
     errorMessages = simplifiedError.errorMessages;
     console.log(errorMessages);
+  }else if (error?.name === 'CastError') {
+    // console.log('CastError');
+    const simplifiedError = handleCastError(error);
+    statusCode = simplifiedError.statusCode;
+    message = simplifiedError.message;
+    errorMessages = simplifiedError.errorMessages;
   } else if (error instanceof APIError) {
     statusCode = error?.statusCode;
     message = error?.message;
