@@ -115,13 +115,21 @@ const updateSemester = async (
   id: string,
   payload: Partial<IAcademicSemester>
 ): Promise<IAcademicSemester | null> => {
-  if (payload.title && payload.code && academicSemesterTitleCodeMapper[payload.title] !== payload.code) {
+  if (
+    payload.title &&
+    payload.code &&
+    academicSemesterTitleCodeMapper[payload.title] !== payload.code
+  ) {
     throw new APIError(
       status.BAD_REQUEST,
       'Invalid title and code combination'
     );
   }
-  const result= await AcademicSemester.findByIdAndUpdate({_id:id},payload ,{new:true});
+  const result = await AcademicSemester.findByIdAndUpdate(
+    { _id: id },
+    payload,
+    { new: true }
+  );
   return result;
 };
 
@@ -129,5 +137,5 @@ export const AcademicSemesterService = {
   createSemester,
   getAllSemesters,
   getSingleSemester,
-  updateSemester
+  updateSemester,
 };
