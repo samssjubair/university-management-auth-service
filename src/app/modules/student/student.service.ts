@@ -6,7 +6,10 @@ import ApiError from '../../../errors/ApiError';
 import { studentSearchableFields } from './student.constant';
 import { IStudent, IStudentFilters } from './student.interface';
 import { Student } from './student.model';
-import { IGenericResponse, IPaginationOptions } from '../../../interfaces/common';
+import {
+  IGenericResponse,
+  IPaginationOptions,
+} from '../../../interfaces/common';
 import { paginationHelpers } from '../../../helpers/paginationHelpers';
 
 const getAllStudents = async (
