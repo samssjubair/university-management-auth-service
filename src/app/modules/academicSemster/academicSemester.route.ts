@@ -4,7 +4,7 @@ import { AcademicSemesterValidation } from './academicSemester.validation';
 import { AcademicSemesterController } from './academicSemester.controller';
 const router = express.Router();
 
-router.get('/get-user', AcademicSemesterController.getAllSemesters);
+router.get('/get-semesters', AcademicSemesterController.getAllSemesters);
 
 router.patch(
   '/:id',

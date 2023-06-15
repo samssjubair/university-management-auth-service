@@ -1,8 +1,6 @@
 import { Schema, model } from 'mongoose';
-import {
-  AcademicDepartmentModel,
-  IAcademicDepartment,
-} from './academicDepartment.interfaces';
+import { AcademicDepartmentModel, IAcademicDepartment } from './academicDepartments.interfaces';
+
 
 const AcademicDepartmentSchema = new Schema<
   IAcademicDepartment,
