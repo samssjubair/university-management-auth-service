@@ -16,9 +16,9 @@ const userSchema = new Schema<IUser>(
       type: String,
       required: true,
     },
-    student:{
+    student: {
       type: Schema.Types.ObjectId,
-      ref: 'Student'
+      ref: 'Student',
     },
     // faculty:{
     //   type: Schema.Types.ObjectId,

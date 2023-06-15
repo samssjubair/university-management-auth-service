@@ -7,7 +7,9 @@ const router = express.Router();
 
 router.post(
   '/create-faculty',
-  UserValidation.validateRequest(AcademicFacultyValidation.createFacultyZodSchema),
+  UserValidation.validateRequest(
+    AcademicFacultyValidation.createFacultyZodSchema
+  ),
   AcademicFacultyController.createFaculty
 );
 
@@ -15,7 +17,9 @@ router.get('/:id', AcademicFacultyController.getSingleFaculty);
 
 router.patch(
   '/:id',
-  UserValidation.validateRequest(AcademicFacultyValidation.updatefacultyZodSchema),
+  UserValidation.validateRequest(
+    AcademicFacultyValidation.updatefacultyZodSchema
+  ),
   AcademicFacultyController.updateFaculty
 );
 

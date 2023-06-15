@@ -9,46 +9,48 @@ import { generateStudentId } from './user.utils';
 import { AcademicSemester } from '../academicSemster/acedimicSemester.model';
 import { Student } from '../student/student.model';
 
-const createStudent = async (student: IStudent, user: IUser): Promise<IUser | null> => {
-  
+const createStudent = async (
+  student: IStudent,
+  user: IUser
+): Promise<IUser | null> => {
   if (!user.password) {
     user.password = config.default_user_password as string;
   }
 
-  user.role='student';
-  let newUserAllData=null;
+  user.role = 'student';
+  let newUserAllData = null;
 
-  const academicSemester= await AcademicSemester.findById(student.academicSemester);
+  const academicSemester = await AcademicSemester.findById(
+    student.academicSemester
+  );
 
-  const session= await mongoose.startSession();
+  const session = await mongoose.startSession();
   try {
     session.startTransaction();
 
     const id = await generateStudentId(academicSemester);
-    user.id=id;
-    student.id=id;
+    user.id = id;
+    student.id = id;
     const newStudent = await Student.create([student], { session });
 
     if (!newStudent.length) {
       throw new APIError(status.BAD_REQUEST, 'Failed to create student');
     }
-    user.student= newStudent[0]._id;
-    const newUser= await User.create([user], {session});
-    if(!newUser.length){
-      throw new APIError(status.BAD_REQUEST, 'Failed to create user')
+    user.student = newStudent[0]._id;
+    const newUser = await User.create([user], { session });
+    if (!newUser.length) {
+      throw new APIError(status.BAD_REQUEST, 'Failed to create user');
     }
-    newUserAllData= newUser[0];
+    newUserAllData = newUser[0];
     await session.commitTransaction();
     session.endSession();
-
   } catch (error) {
     await session.abortTransaction();
     session.endSession();
     throw error;
-    
   }
 
-  if(newUserAllData){
+  if (newUserAllData) {
     newUserAllData = await User.findOne({ id: newUserAllData.id }).populate({
       path: 'student',
       populate: [
@@ -65,9 +67,6 @@ const createStudent = async (student: IStudent, user: IUser): Promise<IUser | nu
     });
   }
   return newUserAllData;
-
-  
-
 };
 
 export const UserService = {

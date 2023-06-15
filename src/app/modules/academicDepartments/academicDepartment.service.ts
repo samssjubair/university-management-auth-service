@@ -1,7 +1,13 @@
 import { SortOrder } from 'mongoose';
-import { IGenericResponse, IPaginationOptions } from '../../../interfaces/common';
+import {
+  IGenericResponse,
+  IPaginationOptions,
+} from '../../../interfaces/common';
 import { academicDepartmentSearchableFields } from './academicDepartment.constants';
-import { IAcademicDepartment, IAcademicDepartmentFilters } from './academicDepartments.interfaces';
+import {
+  IAcademicDepartment,
+  IAcademicDepartmentFilters,
+} from './academicDepartments.interfaces';
 import { paginationHelpers } from '../../../helpers/paginationHelpers';
 import { AcademicDepartment } from './academicDepartments.model';
 

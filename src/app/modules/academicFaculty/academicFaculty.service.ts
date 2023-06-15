@@ -1,5 +1,8 @@
 import { SortOrder } from 'mongoose';
-import { IGenericResponse, IPaginationOptions } from '../../../interfaces/common';
+import {
+  IGenericResponse,
+  IPaginationOptions,
+} from '../../../interfaces/common';
 import { academicFacultySearchableFields } from './academicFaculty.constants';
 import {
   IAcademicFaculty,

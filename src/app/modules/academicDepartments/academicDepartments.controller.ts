@@ -10,7 +10,6 @@ import { IAcademicDepartment } from './academicDepartments.interfaces';
 import { academicDepartmentFilterableFields } from './academicDepartment.constants';
 
 const createDepartment = catchAsync(async (req: Request, res: Response) => {
-  
   const { ...academicDepartmentData } = req.body;
   const result = await AcademicDepartmentService.createDepartment(
     academicDepartmentData

@@ -22,7 +22,7 @@ const moduleRoutes = [
   {
     path: '/academic-faculties',
     router: AcademicFacultyRoutes,
-  }
+  },
 ];
 
 moduleRoutes.forEach(route => {
