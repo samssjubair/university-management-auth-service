@@ -1,7 +1,11 @@
 import express from 'express';
 import { UserController } from './user.controller';
 import { UserValidation } from '../../middlewares/validateRequest';
-import { createAdminZodSchema, createFacultyZodSchema, createStudentZodSchema } from './user.validation';
+import {
+  createAdminZodSchema,
+  createFacultyZodSchema,
+  createStudentZodSchema,
+} from './user.validation';
 const router = express.Router();
 
 router.post(
@@ -9,7 +13,6 @@ router.post(
   UserValidation.validateRequest(createStudentZodSchema),
   UserController.createStudentController
 );
-
 
 router.post(
   '/create-faculty',

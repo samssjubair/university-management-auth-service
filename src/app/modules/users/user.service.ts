@@ -5,7 +5,11 @@ import APIError from '../../../errors/ApiError';
 import { IStudent } from '../student/student.interface';
 import { IUser } from './user.interface';
 import { User } from './user.model';
-import { generateAdminId, generateFacultyId, generateStudentId } from './user.utils';
+import {
+  generateAdminId,
+  generateFacultyId,
+  generateStudentId,
+} from './user.utils';
 import { AcademicSemester } from '../academicSemster/acedimicSemester.model';
 import { Student } from '../student/student.model';
 import { IAdmin } from '../admin/admin.interface';
