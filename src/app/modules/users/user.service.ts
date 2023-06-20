@@ -17,6 +17,7 @@ import { Admin } from '../admin/admin.model';
 import { Faculty } from '../faculty/faculty.model';
 import { IFaculty } from '../faculty/faculty.interface';
 
+
 const createStudent = async (
   student: IStudent,
   user: IUser
@@ -24,6 +25,10 @@ const createStudent = async (
   if (!user.password) {
     user.password = config.default_student_pass as string;
   }
+
+  // set hash
+  
+  // set role
 
   user.role = 'student';
   let newUserAllData = null;
@@ -85,6 +90,11 @@ const createFaculty = async (
   if (!user.password) {
     user.password = config.default_faculty_pass as string;
   }
+  // set hash
+
+  
+
+
   // set role
   user.role = 'faculty';
 
@@ -145,6 +155,9 @@ const createAdmin = async (
   if (!user.password) {
     user.password = config.default_admin_pass as string;
   }
+
+
+
   // set role
   user.role = 'admin';
 
