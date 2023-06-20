@@ -1,5 +1,5 @@
 import express from 'express';
-import {UserValidation} from '../../middlewares/validateRequest';
+import { UserValidation } from '../../middlewares/validateRequest';
 import { AdminController } from './admin.controller';
 import { AdminValidation } from './admin.validation';
 const router = express.Router();

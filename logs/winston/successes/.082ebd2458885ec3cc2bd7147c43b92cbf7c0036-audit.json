@@ -144,6 +144,11 @@
             "date": 1687283546970,
             "name": "/Users/samssjubair/Documents/PH level-2/university-management/server/logs/winston/successes/um-2023-06-20-23-success.log",
             "hash": "3eb97b4542e103e83b5089a061e6f2a077a1f1b7fc686eb2a23b11ab63fc14fe"
+        },
+        {
+            "date": 1687294953065,
+            "name": "/Users/samssjubair/Documents/PH level-2/university-management/server/logs/winston/successes/um-2023-06-21-03-success.log",
+            "hash": "001bb6dc21a46ddf0869294e0c450ca113c5879ae4844ebbc1892e24934d6586"
         }
     ],
     "hashType": "sha256"
