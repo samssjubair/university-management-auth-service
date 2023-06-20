@@ -1,4 +1,4 @@
-import { status } from 'http-status';
+import httpStatus from 'http-status';
 import mongoose from 'mongoose';
 import config from '../../../config';
 import APIError from '../../../errors/ApiError';
@@ -14,7 +14,7 @@ const createStudent = async (
   user: IUser
 ): Promise<IUser | null> => {
   if (!user.password) {
-    user.password = config.default_user_password as string;
+    user.password = config.default_student_pass as string;
   }
 
   user.role = 'student';
@@ -34,12 +34,12 @@ const createStudent = async (
     const newStudent = await Student.create([student], { session });
 
     if (!newStudent.length) {
-      throw new APIError(status.BAD_REQUEST, 'Failed to create student');
+      throw new APIError(httpStatus.BAD_REQUEST, 'Failed to create student');
     }
     user.student = newStudent[0]._id;
     const newUser = await User.create([user], { session });
     if (!newUser.length) {
-      throw new APIError(status.BAD_REQUEST, 'Failed to create user');
+      throw new APIError(httpStatus.BAD_REQUEST, 'Failed to create user');
     }
     newUserAllData = newUser[0];
     await session.commitTransaction();
