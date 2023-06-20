@@ -44,7 +44,7 @@ userSchema.pre('save', async function (next) {
     this.password,
     Number(config.bcrypt_salt_round)
   );
-  next()
-})
+  next();
+});
 
 export const User = model<IUser, UserModel>('User', userSchema);
