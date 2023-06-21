@@ -47,9 +47,9 @@ const userSchema = new Schema<IUser, Record<string, never>, IUserMethods>(
 userSchema.methods.isUserExist = async function (
   id: string
 ): Promise<Partial<IUser | null>> {
-  const user = await this.findOne(
+  const user = await User.findOne(
     { id },
-    { id: 1, password: 1, needsPasswordChange: 1 }
+    { id: 1, password: 1, needsPasswordChange: 1, role: 1 }
   );
   return user;
 };
