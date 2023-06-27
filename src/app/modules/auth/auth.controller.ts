@@ -9,15 +9,14 @@ import config from '../../../config';
 const loginUser = catchAsync(async (req: Request, res: Response) => {
   const { ...loginData } = req.body;
   const result = await AuthService.loginUser(loginData);
-  const {refreshToken, ...others} = result;
-
+  const { refreshToken, ...others } = result;
 
   const cookieOptions = {
     secure: config.env === 'production',
     httpOnly: true,
-  }
+  };
 
-  res.cookie('refreshToken', refreshToken, cookieOptions)
+  res.cookie('refreshToken', refreshToken, cookieOptions);
 
   sendResponse<ILoginUserResponse>(res, {
     statusCode: httpStatus.OK,
@@ -34,19 +33,19 @@ const refreshToken = catchAsync(async (req: Request, res: Response) => {
   const cookieOptions = {
     secure: config.env === 'production',
     httpOnly: true,
-  }
+  };
 
-  res.cookie('refreshToken', refreshToken, cookieOptions)
+  res.cookie('refreshToken', refreshToken, cookieOptions);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'User logged in successfully !',
-    data: result
+    data: result,
   });
 });
 
 export const AuthController = {
   loginUser,
-  refreshToken
+  refreshToken,
 };
