@@ -18,4 +18,12 @@ export type IUserMethods = {
   isPasswordMatched(givenPass: string, savedPass: string): Promise<boolean>;
 };
 
-export type UserModel = Model<IUser, Record<string, unknown>, IUserMethods>;
+export type UserModel = {
+  isUserExist(
+    id: string
+  ): Promise<Pick<IUser, 'id' | 'password' | 'role' | 'needsPasswordChange'>>;
+  isPasswordMatched(
+    givenPassword: string,
+    savedPassword: string
+  ): Promise<boolean>;
+} & Model<IUser>;
