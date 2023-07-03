@@ -53,7 +53,10 @@ const loginUser = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
   };
 };
 
-const changePassword = async (user: JwtPayload | null, payload: IChangePassword): Promise<void> => {
+const changePassword = async (
+  user: JwtPayload | null,
+  payload: IChangePassword
+): Promise<void> => {
   const { oldPassword, newPassword } = payload;
 
   const isUserExist = await User.isUserExist(user?.userId);
@@ -71,15 +74,18 @@ const changePassword = async (user: JwtPayload | null, payload: IChangePassword)
   }
 
   // hash password before saving
-  const hashedPassword = await bcrypt.hash(newPassword, Number(config.bcrypt_salt_round));
+  const hashedPassword = await bcrypt.hash(
+    newPassword,
+    Number(config.bcrypt_salt_round)
+  );
 
-  const updatedData= {
+  const updatedData = {
     password: hashedPassword,
     needsPasswordChange: false,
     passwordChangedAt: new Date(),
-  }
+  };
 
-  await User.findOneAndUpdate({id: user?.userId}, updatedData);
+  await User.findOneAndUpdate({ id: user?.userId }, updatedData);
 };
 
 const refreshToken = async (token: string): Promise<IRefreshTokenResponse> => {
@@ -120,5 +126,5 @@ const refreshToken = async (token: string): Promise<IRefreshTokenResponse> => {
 export const AuthService = {
   loginUser,
   refreshToken,
-  changePassword
+  changePassword,
 };
